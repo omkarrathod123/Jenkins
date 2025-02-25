@@ -15,8 +15,8 @@ sudo apt-get update -y
 sudo apt-get install jenkins -y
 echo "Jenkins is installed"
 
-sudo apt update
-sudo apt install fontconfig openjdk-17-jre
+sudo apt update -y
+sudo apt install fontconfig openjdk-17-jre -y
 java -version
 
 **Admin Key at:-** /var/lib/jenkins/secrets/initialAdminPassword
