@@ -1,2 +1,22 @@
 # Jenkins
 **Jenkins**
+
+ Jenkins is an open source continuous integration/continuous delivery and deployment (CI/CD) automation software DevOps tool written in the Java programming language. It is used **to implement CI/CD workflows, called pipelines.**
+
+**Installation of jenkins isn ubuntu:--**
+
+apt-get update -y
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
+  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
+  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
+  /etc/apt/sources.list.d/jenkins.list > /dev/null
+sudo apt-get update -y
+sudo apt-get install jenkins -y
+echo "Jenkins is installed"
+
+sudo apt update
+sudo apt install fontconfig openjdk-17-jre
+java -version
+
+**Admin Key at:-** /var/lib/jenkins/secrets/initialAdminPassword
