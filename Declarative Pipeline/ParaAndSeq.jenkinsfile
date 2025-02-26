@@ -1,0 +1,37 @@
+pipeline {
+    agent {
+        node {
+            label 'ubuntu'
+        }
+    }
+    stages{
+        stage ('Installation') {
+            parallel {
+                stage ('install nginx'){
+                    steps {
+                        sh 'sudo apt-get update -y'
+                        sh 'sudo apt install nginx -y'
+                    }
+                }
+                stage ('install net-tool'){
+                    steps {
+                        sh 'sudo apt-get update -y'
+                        sh 'sudo apt install nettool -y'
+                    }
+                }
+            }
+        }
+        stage ('Start') {
+            steps {
+                sh 'sudo systemctl start nginx'
+                sh 'jenkins --version'
+            }
+        }
+        stage ('Set') {
+            steps {
+                sh 'cd /etc/www/html/'
+                sh 'echo "This is a practical of nginx "'
+            }
+        }   
+    }
+}
