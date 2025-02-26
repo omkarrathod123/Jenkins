@@ -1,0 +1,33 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Installing NGINX...'
+                sh 'sudo apt-get update'
+                sh 'sudo apt-get install -y nginx'
+                echo 'NGINX installed!'
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Start Deploying...'
+                sh 'sudo echo "Welcome ! this is test of nginx server!!" > index.html'
+                sh 'sudo mv index.html /var/www/html/index.html'
+            }
+        }
+        stage('Start') {
+            steps {
+                echo 'Starting server...'
+                sh 'sudo systemctl start nginx'
+                sh 'sudo systemctl status nginx'
+            }
+        }
+        stage('Verifing'){
+            steps{
+                sh 'echo $?'
+            }
+        }
+    }
+}

@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Installing NGINX...'
+                sh 'sudo apt-get update'
+                sh 'sudo apt-get install -y nginx'
+                echo 'NGINX installed!'
+            }
+        }
+    }
+}
