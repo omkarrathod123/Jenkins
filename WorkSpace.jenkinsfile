@@ -1,0 +1,12 @@
+pipeline {
+    agent {
+        node {customWorkspace '/etc/www/html/'}
+    }
+    stages {
+        stage ('create file') {
+            steps {
+                sh 'touch index.html'
+            }
+        }
+    }
+}
