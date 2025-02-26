@@ -1,0 +1,23 @@
+pipeline {
+    agent any
+    
+    stages {
+        stage('Build') {
+            steps {
+                echo 'Building...'
+                // You can add your build commands here, like "sh 'mvn clean install'"
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Testing...'
+                // Add your test commands here, like "sh 'mvn test'"
+            }
+        }
+        stage('Deploy') {
+            steps {
+                echo 'Deploying...'
+                // Add your deploy commands here, like "sh 'scp target/*.jar user@server:/path/to/deploy'"
+            }
+        }
+    }
