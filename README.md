@@ -20,3 +20,7 @@ sudo apt install fontconfig openjdk-17-jre -y
 java -version
 
 **Admin Key at:-** /var/lib/jenkins/secrets/initialAdminPassword
+
+**Types of Pipeline**
+**1** Scripted Pipeline:- A scripted pipeline uses the groovy lang to create a pipeline as a code. this type is also a first version of pipeline as a code.
+**2** Declarative Pipeline:- The declarative pipeline follows a relatively new systntax, witch narrow the scop of pipeline.
