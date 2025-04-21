@@ -2,12 +2,20 @@ pipeline {
     agent any
     
     stages {
-        stage('Build') {
+        stage('Install nginx') {
             steps {
                 echo 'Installing NGINX...'
                 sh 'sudo apt-get update'
                 sh 'sudo apt-get install -y nginx'
                 echo 'NGINX installed!'
+            }
+        }
+        stage('create web page'){
+            steps{
+                echo 'create html page'
+                sh 'cd /var/www/html'
+                sh 'echo "This is test of nginx server" > index.html'
+                sh 'echo "If this is working then all is fine" >> index.html'
             }
         }
     }
