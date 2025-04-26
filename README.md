@@ -24,3 +24,6 @@ java -version
 **Types of Pipeline**
 **1** Scripted Pipeline:- A scripted pipeline uses the groovy lang to create a pipeline as a code. this type is also a first version of pipeline as a code.
 **2** Declarative Pipeline:- The declarative pipeline follows a relatively new systntax, witch narrow the scop of pipeline.
+
+**You can use the following repo for terraform code**
+https://github.com/omkarrathod123/Jenkins-Server
