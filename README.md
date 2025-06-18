@@ -1,29 +1,69 @@
-# Jenkins
-**Jenkins**
+# Jenkins Installation Guide for Ubuntu
 
- Jenkins is an open source continuous integration/continuous delivery and deployment (CI/CD) automation software DevOps tool written in the Java programming language. It is used **to implement CI/CD workflows, called pipelines.**
+## Overview
+Jenkins is an open-source automation server used for implementing CI/CD pipelines. This guide provides step-by-step instructions for installing Jenkins on Ubuntu.
 
-**Installation of jenkins isn ubuntu:--**
+## Prerequisites
+Ensure your system meets the following requirements:
+- Ubuntu 20.04 or later
+- A non-root user with sudo privileges
+- Java (Jenkins requires Java to run)
 
-apt-get update -y
-sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \
-  https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
-echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]" \
-  https://pkg.jenkins.io/debian-stable binary/ | sudo tee \
-  /etc/apt/sources.list.d/jenkins.list > /dev/null
-sudo apt-get update -y
-sudo apt-get install jenkins -y
-echo "Jenkins is installed"
+## Installation Steps
 
-sudo apt update -y
+### Step 1: Update System Packages
+Update and upgrade the package lists:
+
+```sh
+sudo apt update -y && sudo apt upgrade -y
+```
+
+### Step 2: Install Java
+```sh
 sudo apt install fontconfig openjdk-17-jre -y
 java -version
+```
+verify it
+```sh
+java -version
+```
 
-**Admin Key at:-** /var/lib/jenkins/secrets/initialAdminPassword
+### Step 3: Add Jenkins Repo
+```sh
+sudo wget -O /usr/share/keyrings/jenkins-keyring.asc https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key
+```
+Then add the repository source:
+```sh
+echo "deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc] https://pkg.jenkins.io/debian-stable binary/" | sudo tee /etc/apt/sources.list.d/jenkins.list > /dev/null
+```
 
-**Types of Pipeline**
-**1** Scripted Pipeline:- A scripted pipeline uses the groovy lang to create a pipeline as a code. this type is also a first version of pipeline as a code.
-**2** Declarative Pipeline:- The declarative pipeline follows a relatively new systntax, witch narrow the scop of pipeline.
+### Step 4: Install Jenkins
+```sh
+sudo apt update -y
+sudo apt install jenkins -y
+```
 
-**You can use the following repo for terraform code**
+### Step 5: Start and Enable Jenins
+```sh
+sudo systemctl start jenkins
+sudo systemctl enable jenkins
+```
+Verify Status of service
+```sh
+sudo systemctl status jenkins
+```
+
+### Step 6: Get access of your Jenkins server
+- open web browser
+- search for your IP with port 8080
+
+### Step 7: Retrieve Admin Password
+```sh
+sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+```
+
+## Terraform Code Repository
+```link
 https://github.com/omkarrathod123/Jenkins-Server
+```
+
