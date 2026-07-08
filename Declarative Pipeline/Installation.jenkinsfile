@@ -21,7 +21,7 @@ pipeline {
             steps {
                 echo 'Starting server...'
                 sh 'sudo systemctl start nginx'
-                sh 'sudo systemctl status nginx'
+                sh 'sudo systemctl enable nginx'
             }
         }
         stage('Verifing'){
